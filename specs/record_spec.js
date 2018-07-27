@@ -27,4 +27,9 @@ describe("Record", function(){
     assert.strictEqual(20, record2.price);
   })
 
+  it("should print out the properties of a record", function(){
+    assert.deepStrictEqual(['artist, Natalia Oreiro', 'title, Me muero de amor',
+     'genre, latin pop', 'price, 10'], record1.printProperties());
+  })
+  
 });

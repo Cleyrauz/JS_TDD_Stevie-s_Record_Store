@@ -5,10 +5,11 @@ const RecordStore = function(name, city, balance){
   this.city = city;
   this.balance = 0;
   this.inventory = [];
-}
+};
 
 RecordStore.prototype.addRecordToInventory = function(record){
   this.inventory.push(record);
-}
+};
+
 
 module.exports = RecordStore;
