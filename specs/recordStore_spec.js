@@ -30,4 +30,15 @@ describe("RecordStore", function(){
     assert.deepStrictEqual(1, recordStore.inventory.length);
   })
 
+  xit("should lists the Record Shop's inventory", function(){
+    recordStore.addRecordToInventory(record1);
+    assert.deepStrictEqual(['artist, Natalia Oreiro', 'title, Me muero de amor',
+     'genre, latin pop', 'price, 10'], recordStore.listsInventory());
+  })
+
+  it('should sell a record', function(){
+    recordStore.sellRecord(record4)
+    assert.strictEqual(25, recordStore.balance);
+  })
+
 });
