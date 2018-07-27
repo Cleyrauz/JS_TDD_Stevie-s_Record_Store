@@ -11,5 +11,13 @@ RecordStore.prototype.addRecordToInventory = function(record){
   this.inventory.push(record);
 };
 
+// RecordStore.prototype.listsInventory = function(){
+//
+// }
+
+
+RecordStore.prototype.sellRecord = function(record){
+  this.balance = record.price;
+}
 
 module.exports = RecordStore;
