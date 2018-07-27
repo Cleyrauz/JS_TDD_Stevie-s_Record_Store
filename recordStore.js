@@ -20,4 +20,9 @@ RecordStore.prototype.sellRecord = function(record){
   this.balance = record.price;
 }
 
+RecordStore.prototype.financialReport = function(){
+  return `there are ${this.inventory.length} records on the shop and $${this.balance} of balance`;
+}
+
+
 module.exports = RecordStore;

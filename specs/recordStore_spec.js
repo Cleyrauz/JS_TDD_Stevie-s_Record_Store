@@ -41,4 +41,11 @@ describe("RecordStore", function(){
     assert.strictEqual(25, recordStore.balance);
   })
 
+  it('should give a financial report', function(){
+    recordStore.addRecordToInventory(record1);
+    recordStore.addRecordToInventory(record2);
+    recordStore.sellRecord(record4)
+    assert.strictEqual("there are 2 records on the shop and $25 of balance", recordStore.financialReport());
+  })
+
 });
