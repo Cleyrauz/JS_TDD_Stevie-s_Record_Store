@@ -7,7 +7,7 @@ describe("RecordStore", function(){
 
   beforeEach(function(){
     recordStore = new RecordStore("Stevie's Record Store", "Glasgow");
-    record1 = new Record("Natalia Oreiro", "Me muero de amor", "latin pop", 10);
+    record1 = new Record("Natalia Oreiro", "Me muero de amor", "pop", 10);
     record2 = new Record("Monsieur Periné", "Encanto tropical", "pop", 20);
     record3 = new Record("Fito Paez", "Euforia", "rock", 15);
     record4 = new Record("Soda Stereo", "Cancion animal", "rock", 25);
@@ -46,6 +46,14 @@ describe("RecordStore", function(){
     recordStore.addRecordToInventory(record2);
     recordStore.sellRecord(record4)
     assert.strictEqual("there are 2 records on the shop and $25 of balance", recordStore.financialReport());
+  })
+
+  it('should show records by genre', function(){
+    recordStore.addRecordToInventory(record1);
+    recordStore.addRecordToInventory(record2);
+    recordStore.addRecordToInventory(record3);
+    recordStore.addRecordToInventory(record4);
+    assert.deepStrictEqual([record1, record2], recordStore.recordsByGenre("pop"));
   })
 
 });

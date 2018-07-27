@@ -15,7 +15,6 @@ RecordStore.prototype.addRecordToInventory = function(record){
 //
 // }
 
-
 RecordStore.prototype.sellRecord = function(record){
   this.balance = record.price;
 }
@@ -24,5 +23,8 @@ RecordStore.prototype.financialReport = function(){
   return `there are ${this.inventory.length} records on the shop and $${this.balance} of balance`;
 }
 
+RecordStore.prototype.recordsByGenre = function(genre){
+  return _.filter(this.inventory, ['genre', genre]);
+}
 
 module.exports = RecordStore;
