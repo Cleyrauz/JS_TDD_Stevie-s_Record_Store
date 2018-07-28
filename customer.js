@@ -16,4 +16,20 @@ Customer.prototype.buyRecord = function(recordStore, record) {
   }
 };
 
+// The reduce() method applies a function against an accumulator and each element
+// in the array (from left to right) to reduce it to a single value.
+Customer.prototype.valueOfCollection = function(){
+  return this.collection.reduce(function(accumulator, record){
+    return accumulator + record.price;
+  }, 0)
+};
+
+Customer.prototype.valueOfCollectionByGenre = function(genre){
+let result = [];
+result = _.filter(this.collection, ['genre', genre]);
+return result.reduce(function(accumulator, record){
+  return accumulator + record.price;
+}, 0)
+};
+
 module.exports = Customer;
