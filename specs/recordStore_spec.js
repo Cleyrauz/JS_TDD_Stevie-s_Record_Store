@@ -37,6 +37,7 @@ describe("RecordStore", function(){
   })
 
   it('should sell a record', function(){
+    recordStore.addRecordToInventory(record4);
     recordStore.sellRecord(record4)
     assert.strictEqual(25, recordStore.balance);
   })
@@ -44,8 +45,9 @@ describe("RecordStore", function(){
   it('should give a financial report', function(){
     recordStore.addRecordToInventory(record1);
     recordStore.addRecordToInventory(record2);
-    recordStore.sellRecord(record4)
-    assert.strictEqual("there are 2 records on the shop and $25 of balance", recordStore.financialReport());
+    recordStore.addRecordToInventory(record3);
+    recordStore.sellRecord(record2)
+    assert.strictEqual("there are 2 records on the shop and $20 of balance", recordStore.financialReport());
   })
 
   it('should show records by genre', function(){

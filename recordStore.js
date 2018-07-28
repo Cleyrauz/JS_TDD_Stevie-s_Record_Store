@@ -16,7 +16,9 @@ RecordStore.prototype.addRecordToInventory = function(record){
 // }
 
 RecordStore.prototype.sellRecord = function(record){
-  this.balance = record.price;
+  this.balance += record.price;
+  var i = this.inventory.indexOf(record);
+  this.inventory.splice(i, 1);
 }
 
 RecordStore.prototype.financialReport = function(){
