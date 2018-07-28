@@ -11,9 +11,11 @@ RecordStore.prototype.addRecordToInventory = function(record){
   this.inventory.push(record);
 };
 
-// RecordStore.prototype.listsInventory = function(){
-//
-// }
+RecordStore.prototype.listsInventory = function(){
+  return _.forEach(this.inventory, function(record) {
+    return record.printProperties();
+  });
+};
 
 RecordStore.prototype.sellRecord = function(record){
   if(_.includes(this.inventory, record)){
@@ -21,14 +23,14 @@ RecordStore.prototype.sellRecord = function(record){
     var i = this.inventory.indexOf(record);
     this.inventory.splice(i, 1);
   }
-}
+};
 
 RecordStore.prototype.financialReport = function(){
   return `there are ${this.inventory.length} records on the shop and $${this.balance} of balance`;
-}
+};
 
 RecordStore.prototype.recordsByGenre = function(genre){
   return _.filter(this.inventory, ['genre', genre]);
-}
+};
 
 module.exports = RecordStore;
