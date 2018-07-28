@@ -4,7 +4,7 @@ const Record = require("../record");
 const Customer = require("../customer");
 
 describe("Customer", function(){
-  let customer1, customer2, record1, record2, record3, recordStore;
+  let customer1, customer2, record1, record2, record3, record4, recordStore;
 
   beforeEach(function(){
     customer1 = new Customer("Cleyra", 20);
@@ -12,6 +12,7 @@ describe("Customer", function(){
     record1 = new Record("Natalia Oreiro", "Me muero de amor", "pop", 10);
     record2 = new Record("Monsieur Periné", "Encanto tropical", "pop", 20);
     record3 = new Record("Fito Paez", "Euforia", "rock", 15);
+    record4 = new Record("Beatles", "Sargent Pepper", "rock", 150);
     recordStore = new RecordStore("Stevie's Record Store", "Glasgow");
   });
 
@@ -31,6 +32,7 @@ it('should be able to buy record from store', function(){
   assert.deepStrictEqual(10, recordStore.balance);
   assert.deepStrictEqual(1, customer1.collection.length);
   assert.deepStrictEqual(1, recordStore.inventory.length);
+  assert.deepStrictEqual("The customer can not afford this record", customer2.buyRecord(recordStore, record4));
 });
 
 it('should be able to view the total value of their collection', function(){

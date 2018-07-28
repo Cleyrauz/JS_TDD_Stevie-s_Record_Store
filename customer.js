@@ -12,7 +12,7 @@ Customer.prototype.buyRecord = function(recordStore, record) {
       this.pocket_money -= record.price;
       this.collection.push(record);
   } else {
-    "The customer can't afford this record"
+    return "The customer can not afford this record";
   }
 };
 
