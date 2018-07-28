@@ -40,4 +40,8 @@ Customer.prototype.sortByValue = function(){
   return _.sortBy(this.collection, 'price');
 };
 
+Customer.prototype.compareCollections = function(customer){
+  return `Compare the value of collections: ${this.name} => $${this.valueOfCollection()} and ${customer.name} => $${customer.valueOfCollection()}`
+}
+
 module.exports = Customer;

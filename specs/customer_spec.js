@@ -72,4 +72,15 @@ it('should be able to sort their records by value', function(){
   assert.deepStrictEqual([record1, record3, record2], customer2.sortByValue());
 });
 
+it('should be able to compare the value of their collection with another', function(){
+  recordStore.addRecordToInventory(record1);
+  recordStore.addRecordToInventory(record2);
+  recordStore.addRecordToInventory(record3);
+  customer2.buyRecord(recordStore, record1);
+  customer2.buyRecord(recordStore, record2);
+  customer2.buyRecord(recordStore, record3);
+  customer1.buyRecord(recordStore, record1);
+  assert.deepStrictEqual('Compare the value of collections: Jose => $45 and Cleyra => $10', customer2.compareCollections(customer1));
+});
+
 });
