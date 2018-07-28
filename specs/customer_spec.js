@@ -51,4 +51,15 @@ it('should be able to view the total value of all records of a given Genre', fun
   assert.deepStrictEqual(30, customer2.valueOfCollectionByGenre('pop'));
 });
 
+it('should be able to view their most valuable record', function(){
+  recordStore.addRecordToInventory(record1);
+  recordStore.addRecordToInventory(record2);
+  recordStore.addRecordToInventory(record3);
+  customer2.buyRecord(recordStore, record1);
+  customer2.buyRecord(recordStore, record2);
+  customer2.buyRecord(recordStore, record3);
+  assert.deepStrictEqual(record2, customer2.mostValuableRecord());
+
+})
+
 });

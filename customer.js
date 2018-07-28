@@ -32,4 +32,10 @@ return result.reduce(function(accumulator, record){
 }, 0)
 };
 
+Customer.prototype.mostValuableRecord = function(){
+return _.maxBy(this.collection, function(record) {
+     return record.price;
+   });
+};
+
 module.exports = Customer;
