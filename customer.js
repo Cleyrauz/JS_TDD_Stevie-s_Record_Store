@@ -19,7 +19,7 @@ Customer.prototype.buyRecord = function(recordStore, record) {
 // The reduce() method applies a function against an accumulator and each element
 // in the array (from left to right) to reduce it to a single value.
 Customer.prototype.valueOfCollection = function(){
-  return this.collection.reduce(function(accumulator, record){
+  return _.reduce(this.collection, function(accumulator, record){
     return accumulator + record.price;
   }, 0)
 };
@@ -33,9 +33,11 @@ return result.reduce(function(accumulator, record){
 };
 
 Customer.prototype.mostValuableRecord = function(){
-return _.maxBy(this.collection, function(record) {
-     return record.price;
-   });
+  return _.maxBy(this.collection, 'price');
+};
+
+Customer.prototype.sortByValue = function(){
+  return _.sortBy(this.collection, 'price');
 };
 
 module.exports = Customer;

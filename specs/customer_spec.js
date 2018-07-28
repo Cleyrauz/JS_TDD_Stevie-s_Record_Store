@@ -60,6 +60,16 @@ it('should be able to view their most valuable record', function(){
   customer2.buyRecord(recordStore, record3);
   assert.deepStrictEqual(record2, customer2.mostValuableRecord());
 
-})
+});
+
+it('should be able to sort their records by value', function(){
+  recordStore.addRecordToInventory(record1);
+  recordStore.addRecordToInventory(record2);
+  recordStore.addRecordToInventory(record3);
+  customer2.buyRecord(recordStore, record1);
+  customer2.buyRecord(recordStore, record2);
+  customer2.buyRecord(recordStore, record3);
+  assert.deepStrictEqual([record1, record3, record2], customer2.sortByValue());
+});
 
 });
